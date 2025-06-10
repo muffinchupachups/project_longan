@@ -13,15 +13,12 @@ export default function Header() {
 
         {/* เมนูหลัก */}
         <nav className="hidden md:flex gap-6 text-green-800 text-sm font-medium">
-          <a href="#" className="hover:text-green-600 transition">หน้าแรก</a>
-          <a href="#" className="hover:text-green-600 transition">ข้อมูลแปลง</a>
-          <a href="#" className="hover:text-green-600 transition">ข่าว</a>
           <a href="#" className="hover:text-green-600 transition">ติดต่อ</a>
         </nav>
 
         {/* ปุ่ม */}
         <button className="px-4 py-2 bg-green-600 text-white text-sm rounded-full shadow hover:bg-green-700 transition">
-          เพิ่มแปลงใหม่
+          ล็อกอิน
         </button>
       </div>
     </header>
