@@ -1,49 +1,45 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function Sidebar() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
+
+  const menuItems = [
+    { path: '/dashboard', label: 'แดชบอร์ด' },
+    { path: '/plot', label: 'สวนลำไย' },
+    { path: '/calendar', label: 'ปฏิทิน' },
+    { path: '/fertilizer', label: 'คำแนะนำปุ๋ย' },
+    { path: '/alert', label: 'แจ้งเตือน' },
+    { path: '/setting', label: 'ตั้งค่า' },
+  ];
 
   return (
     <aside className="w-64 bg-[#2F6D4F] text-white flex flex-col justify-between">
       <div>
-        <div className="text-2xl font-bold p-6">Smart Senser</div>
+        {/* คลิก Smart Senser แล้วไปหน้า homepage */}
+        <div
+          className="text-2xl font-bold p-6 cursor-pointer hover:opacity-80"
+          onClick={() => navigate('Homepage')}
+        >
+          Smart Senser
+        </div>
+
         <nav className="flex flex-col gap-2 px-4">
-          <button
-            className="text-left py-2 px-4 rounded bg-[#4F8968]"
-            onClick={() => navigate('/dashboard')}
-          >
-            แดชบอร์ด
-          </button>
-          <button
-            className="text-left py-2 px-4 hover:bg-[#4F8968]"
-            onClick={() => navigate('/plot')}
-          >
-            สวนลำไย
-          </button>
-          <button
-            className="text-left py-2 px-4 hover:bg-[#4F8968]"
-            onClick={() => navigate('/calendar')}
-          >
-            ปฏิทิน
-          </button>
-          <button
-            className="text-left py-2 px-4 hover:bg-[#4F8968]"
-            onClick={() => navigate('/fertilizer')}
-          >
-            คำแนะนำปุ๋ย
-          </button>
-          <button
-            className="text-left py-2 px-4 hover:bg-[#4F8968]"
-            onClick={() => navigate('/alert')}
-          >
-            แจ้งเตือน
-          </button>
-          <button
-            className="text-left py-2 px-4 hover:bg-[#4F8968]"
-            onClick={() => navigate('/setting')}
-          >
-            ตั้งค่า
-          </button>
+          {menuItems.map((item) => (
+            <button
+              key={item.path}
+              className={`text-left py-2 px-4 rounded ${
+                isActive(item.path)
+                  ? 'bg-[#4F8968] text-white'
+                  : 'hover:bg-[#4F8968]'
+              }`}
+              onClick={() => navigate(item.path)}
+            >
+              {item.label}
+            </button>
+          ))}
         </nav>
       </div>
 

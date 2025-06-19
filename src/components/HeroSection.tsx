@@ -6,7 +6,7 @@ export default function HeroSection() {
   const [goDashboard, setGoDashboard] = useState(false);
   const Navigate = useNavigate();
   if (goDashboard) {
-    return <Dashboard />; // ✅ แสดงหน้า Dashboard แทน
+    return <Dashboard />; 
   }
 
   return (
@@ -23,7 +23,7 @@ export default function HeroSection() {
 
           <button
             onClick={() => Navigate("/dashboard")}
-            className="mt-6 px-6 py-2 bg-green-600 text-white rounded-full shadow hover:bg-green-700 transition"
+            className="mt-6 px-6 py-2 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition"
           >
             เริ่มวางแผนการปลูก
           </button>
