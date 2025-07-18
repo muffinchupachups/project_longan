@@ -1,15 +1,15 @@
 import {
-  Thermometer,
-  Droplet,
-  Wind,
-  CloudRain
+  Sun,
+  CloudRain,
+  Cloud,
+  CloudSnow
 } from "lucide-react"; 
 
 const sensorData = [
-  { icon: <Thermometer className="text-red-500 w-6 h-6" />, label: "อุณหภูมิ", value: "32°C" },
-  { icon: <Droplet className="text-blue-500 w-6 h-6" />, label: "ความชื้น", value: "78%" },
-  { icon: <Wind className="text-purple-500 w-6 h-6" />, label: "ฝุ่น", value: "2 µm" },
-  { icon: <CloudRain className="text-indigo-500 w-6 h-6" />, label: "ปริมาณน้ำฝน", value: "1.2 mm" },
+  { icon: <Sun className="text-yellow-500 w-8 h-8" />, value: "32°C", label: "อุณหภูมิ" },
+  { icon: <CloudRain className="text-blue-500 w-8 h-8" />, value: "78%", label: "ความชื้น" },
+  { icon: <Cloud className="text-gray-400 w-8 h-8" />, value: "2 µm", label: "ฝุ่น" },
+  { icon: <CloudSnow className="text-green-500 w-8 h-8" />, value: "1.2 mm", label: "ปริมาณฝน" }
 ];
 
 export default function SensorStats() {
@@ -18,11 +18,11 @@ export default function SensorStats() {
       {sensorData.map((item, index) => (
         <div
           key={index}
-          className="bg-white rounded-2xl p-4 shadow hover:shadow-md transition flex flex-col items-center text-center"
+          className="bg-white rounded-2xl p-6 shadow hover:shadow-md transition flex flex-col items-center text-center"
         >
           <div className="mb-2">{item.icon}</div>
-          <div className="text-sm text-gray-500">{item.label}</div>
           <div className="text-2xl font-semibold text-green-800">{item.value}</div>
+          <div className="text-sm text-gray-500">{item.label}</div>
         </div>
       ))}
     </section>
