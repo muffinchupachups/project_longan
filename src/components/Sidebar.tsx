@@ -16,14 +16,14 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 bg-[#2F6D4F] text-white flex flex-col justify-between">
+    <aside className="w-64 bg-gradient-to-r from-green-800 to-green-400 text-white flex flex-col justify-between">
       <div>
         {/* คลิก Smart Senser แล้วไปหน้า homepage */}
         <div
           className="text-2xl font-bold p-6 cursor-pointer hover:opacity-80"
           onClick={() => navigate('Homepage')}
         >
-          Smart Senser
+          Smart Senser longan
         </div>
 
         <nav className="flex flex-col gap-2 px-4">

@@ -1,26 +1,50 @@
-// src/pages/LoginPage.tsx
-import { useNavigate } from 'react-router-dom';
+// src/pages/Login.tsx
+import { useNavigate } from "react-router-dom";
 
-export default function LoginPage() {
+export default function Login() {
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    // mock login
-    navigate('/dashboard'); // ไปหน้า homepage หรือ dashboard หลัง login
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form onSubmit={handleLogin} className="bg-white p-8 rounded shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center">เข้าสู่ระบบ</h2>
-        <input type="text" placeholder="อีเมลหรือชื่อผู้ใช้" className="w-full px-4 py-2 mb-4 border rounded" required />
-        <input type="password" placeholder="รหัสผ่าน" className="w-full px-4 py-2 mb-4 border rounded" required />
-        <button type="submit" className="w-full bg-green-700 text-white py-2 rounded hover:bg-green-800">เข้าสู่ระบบ</button>
-        <p className="text-center text-sm mt-4">
-          ยังไม่มีบัญชี? <span className="text-green-700 cursor-pointer" onClick={() => navigate('/register')}>สมัครสมาชิก</span>
+    <div className="min-h-screen bg-green-50 flex items-center justify-center">
+      <div className="bg-white shadow-lg rounded-xl w-full max-w-md p-8">
+        <h1 className="text-2xl font-semibold text-green-800 mb-6 text-center">
+          เข้าสู่ระบบ
+        </h1>
+
+        <form className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">อีเมล</label>
+            <input
+              type="email"
+              placeholder="your@email.com"
+              className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700">รหัสผ่าน</label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
+          >
+            เข้าสู่ระบบ
+          </button>
+        </form>
+
+        <p className="mt-4 text-center text-sm text-gray-600">
+          ยังไม่มีบัญชี?{" "}
+          <button onClick={() => navigate("/register")} className="text-green-700 font-medium">
+            สมัครสมาชิก
+          </button>
         </p>
-      </form>
+      </div>
     </div>
   );
 }

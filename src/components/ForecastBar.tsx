@@ -1,49 +1,64 @@
-// src/components/ForecastBar.tsx
+import { useRef } from "react";
+import { Calendar, ChevronLeft, ChevronRight, CloudRain, Sun, Leaf, Snowflake, Cloud } from "lucide-react";
+
 const forecastMonths = [
-  { month: "ม.ค.", status: "แนะนำ" },
-  { month: "ก.พ.", status: "" },
-  { month: "มี.ค.", status: "" },
-  { month: "เม.ย.", status: "" },
-  { month: "พ.ค.", status: "ไม่แนะนำ" },
-  { month: "มิ.ย.", status: "" },
-  { month: "ก.ค.", status: "" },
-  { month: "ส.ค.", status: "" },
-  { month: "ก.ย.", status: "แนะนำ" },
-  { month: "ต.ค.", status: "" },
-  { month: "พ.ย.", status: "เหมาะสม" },
-  { month: "ธ.ค.", status: "" },
+  { month: "ก.ย.", status: "ฝนตกมาก", icon: <CloudRain className="text-green-600 w-6 h-6" /> },
+  { month: "ต.ค.", status: "อากาศปลอดโปร่ง", icon: <Sun className="text-yellow-500 w-6 h-6" /> },
+  { month: "พ.ย.", status: "เหมาะสำหรับปลูก", icon: <Leaf className="text-green-500 w-6 h-6" /> },
+  { month: "ธ.ค.", status: "อากาศเย็น", icon: <Snowflake className="text-blue-500 w-6 h-6" /> },
+  { month: "ม.ค.", status: "อากาศดี", icon: <Sun className="text-yellow-500 w-6 h-6" /> },
+  { month: "ก.พ.", status: "ร้อน-เย็นสลับ", icon: <Cloud className="text-teal-500 w-6 h-6" /> },
+    { month: "ก.ย.", status: "ฝนตกมาก", icon: <CloudRain className="text-green-600 w-6 h-6" /> },
+  { month: "ต.ค.", status: "อากาศปลอดโปร่ง", icon: <Sun className="text-yellow-500 w-6 h-6" /> },
+  { month: "พ.ย.", status: "เหมาะสำหรับปลูก", icon: <Leaf className="text-green-500 w-6 h-6" /> },
+  { month: "ธ.ค.", status: "อากาศเย็น", icon: <Snowflake className="text-blue-500 w-6 h-6" /> },
+  { month: "ม.ค.", status: "อากาศดี", icon: <Sun className="text-yellow-500 w-6 h-6" /> },
+  { month: "ก.พ.", status: "ร้อน-เย็นสลับ", icon: <Cloud className="text-teal-500 w-6 h-6" /> },
 ];
 
 export default function ForecastBar() {
+  const scrollRef = useRef<HTMLDivElement>(null); // ✅ แก้ตรงนี้
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -150 : 150,
+        behavior: "smooth",
+      });
+    }
+  };
+
+
   return (
     <section className="px-4 py-3">
-      <h3 className="text-lg font-semibold text-green-800 mb-3">
-        ช่วงเวลาที่เหมาะสมในการปลูก
-      </h3>
-      <div className="flex gap-3 overflow-x-auto scrollbar-hide snap-x scroll-smooth">
-        {forecastMonths.map((item, index) => {
-          let color =
-            "bg-white text-gray-700 border-gray-200";
-          if (item.status === "แนะนำ") {
-            color = "bg-green-100 border-green-400 text-green-800";
-          } else if (item.status === "ไม่แนะนำ") {
-            color = "bg-red-100 border-red-400 text-red-800";
-          } else if (item.status === "เหมาะสม") {
-            color = "bg-blue-100 border-blue-400 text-blue-800";
-          }
+      <div className="flex items-center justify-between mb-3">
+        <h3 className="text-lg font-semibold text-green-800 flex items-center gap-2">
+          <Calendar className="w-5 h-5" /> พยากรณ์ฤดูปลูก (ก.ย. – ก.พ.)
+        </h3>
+        <div className="flex gap-2">
+          <button onClick={() => scroll("left")} className="p-1 rounded-full bg-white shadow hover:bg-green-100">
+            <ChevronLeft className="w-5 h-5 text-green-800" />
+          </button>
+          <button onClick={() => scroll("right")} className="p-1 rounded-full bg-white shadow hover:bg-green-100">
+            <ChevronRight className="w-5 h-5 text-green-800" />
+          </button>
+        </div>
+      </div>
 
-          return (
-            <div
-              key={index}
-              className={`min-w-[100px] snap-center text-center px-5 py-3 border-2 rounded-xl shadow-sm ${color} hover:shadow-lg hover:border-gray-500 transition-all duration-300`}
-            >
-              <div className="font-bold text-lg">{item.month}</div>
-              {item.status && (
-                <div className="text-xs mt-1 font-medium">{item.status}</div>
-              )}
-            </div>
-          );
-        })}
+      <div
+        ref={scrollRef}
+        className="flex gap-3 overflow-x-auto scrollbar-hide snap-x scroll-smooth"
+      >
+        {forecastMonths.map((item, index) => (
+          <div
+            key={index}
+            className="min-w-[120px] snap-center text-center px-5 py-5 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center gap-2"
+          >
+            {item.icon}
+            <div className="font-bold text-sm">{item.month}</div>
+            <div className="text-xs text-gray-600">{item.status}</div>
+          </div>
+        ))}
       </div>
     </section>
   );

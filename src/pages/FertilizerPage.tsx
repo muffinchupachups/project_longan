@@ -16,11 +16,6 @@ export default function FertilizerPage() {
 
   return (
     <div className="min-h-screen bg-[#F3F6EF] text-gray-800 p-6">
-      {/* Header */}
-      <header className="flex justify-between items-center mb-6">
-        <h1 className="text-xl font-bold text-[#3A6E3A]">DSS ลำไย</h1>
-        <div className="text-sm">คำแนะนำปุ๋ย</div>
-      </header>
 
       {/* Dropdown */}
       <div className="mb-4">
@@ -106,11 +101,6 @@ export default function FertilizerPage() {
           </tbody>
         </table>
       </div>
-
-      {/* Footer */}
-      <footer className="text-center text-xs text-gray-400 mt-6">
-        © 2025 DSS ลำไย Smart Farming
-      </footer>
     </div>
   );
 }

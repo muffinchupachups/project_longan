@@ -38,13 +38,6 @@ const pastAlerts = [
 export default function AlertPage() {
   return (
     <div className="min-h-screen bg-[#F7FAFC] text-gray-800 pb-20">
-      {/* Header */}
-      <header className="p-4 flex justify-between items-center bg-white shadow">
-        <h1 className="text-xl font-bold text-[#5CA17E] flex items-center gap-2">
-          DSS ลำไย <FiBell className="text-[#FDAA2A]" />
-        </h1>
-        <div className="text-sm text-gray-600">สวัสดี, เกษตรกร</div>
-      </header>
 
       <main className="p-6 space-y-8">
         {/* Current Alerts */}

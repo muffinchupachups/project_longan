@@ -38,14 +38,6 @@ const plots = [
 export default function plotsPage() {
   return (
     <div className="min-h-screen bg-[#F5F3EE] text-gray-800">
-      {/* Header */}
-      <header className="bg-gradient-to-r from-green-900 to-yellow-700 text-white p-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">DSS ลำไย</h1>
-        <div className="flex items-center gap-4">
-          <button className="text-sm border px-4 py-1 rounded bg-white text-gray-800">บันทึกข้อมูล</button>
-          <img src="https://i.pravatar.cc/32" alt="profile" className="rounded-full w-8 h-8" />
-        </div>
-      </header>
 
       {/* Content */}
       <main className="p-6">
@@ -98,11 +90,6 @@ export default function plotsPage() {
           ))}
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="text-center text-xs text-gray-500 mt-8 py-4">
-        DSS ลำไย © 2024 | ข้อมูลโดยกรมวิชาการเกษตร
-      </footer>
     </div>
   );
 }

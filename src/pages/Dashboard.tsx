@@ -13,9 +13,6 @@ export default function Dashboard() {
               แปลงปลูกชื่อ “สวนลำไย บ้านวังชิ้น” พื้นที่ 12 ไร่ ใกล้ลำห้วยแคววัง
             </p>
           </div>
-          <button className="bg-[#3A8B61] text-white px-4 py-2 rounded hover:bg-[#326F50]">
-            ดูข้อมูลแปลงเพิ่มเติม
-          </button>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
