@@ -34,7 +34,7 @@ export default function LandingPage() {
             className="w-96 h-96 object-cover rounded-2xl shadow-lg"
           />
           <button
-            onClick={() => navigate("/register")}
+            onClick={() => navigate("/register2")}
             className="mt-6 px-8 py-3 text-lg bg-white rounded-full text-gray-800 font-semibold shadow hover:bg-gray-100"
           >
             ลงชื่อเข้าใช้งานสำหรับผู้ให้บริการ

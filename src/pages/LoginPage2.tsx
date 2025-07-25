@@ -1,7 +1,6 @@
-// src/pages/Login.tsx
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login2() {
   const navigate = useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
@@ -9,7 +8,7 @@ export default function Login() {
 
     // 🔐 ถ้ามีการตรวจสอบจริง เช่น call API ตรงนี้ ให้ทำก่อน navigate
     // สมมุติว่าล็อกอินสำเร็จแล้ว
-    navigate("/dashboard");
+    navigate("/joindrone");
   };
 
   return (
@@ -48,7 +47,7 @@ export default function Login() {
 
         <p className="mt-4 text-center text-sm text-gray-600">
           ยังไม่มีบัญชี?{" "}
-          <button onClick={() => navigate("/register")} className="text-green-700 font-medium">
+          <button onClick={() => navigate("/register2")} className="text-green-700 font-medium">
             สมัครสมาชิก
           </button>
         </p>
@@ -56,4 +55,3 @@ export default function Login() {
     </div>
   );
 }
-

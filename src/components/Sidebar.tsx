@@ -19,11 +19,17 @@ export default function Sidebar() {
     <aside className="w-64 bg-gradient-to-r from-green-800 to-green-400 text-white flex flex-col justify-between">
       <div>
         {/* คลิก Smart Senser แล้วไปหน้า homepage */}
-        <div
-          className="text-2xl font-bold p-6 cursor-pointer hover:opacity-80"
-          onClick={() => navigate('Homepage')}
-        >
-          Smart Senser longan
+
+        <div className="flex items-center gap-0"
+             onClick={() => navigate('Homepage')} >
+          <img
+            src="images/logo.png"
+            alt="SmartSensor Logo"
+            className="h-10 w-10 object-cover rounded-full bg-white mr-1"
+          />
+          <span className="text-2xl font-bold p-6 cursor-pointer hover:opacity-80 mr-1">
+            smartsensor <span className="text-white">longon</span>
+          </span>
         </div>
 
         <nav className="flex flex-col gap-2 px-4">
