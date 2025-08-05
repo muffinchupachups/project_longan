@@ -1,2 +1,62 @@
 @import "tailwindcss";
+/* Remove FullCalendar grid borders */
+.fc .fc-scrollgrid,
+.fc .fc-scrollgrid td,
+.fc .fc-scrollgrid th {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
 
+/* Remove day cell background */
+.fc-daygrid-day {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Remove header cell borders */
+.fc-col-header-cell {
+  border: none !important;
+}
+
+/* Hover effect transparent */
+.fc-daygrid-day:hover {
+  background-color: transparent !important;
+}
+
+/* Remove all default grid lines */
+.fc-theme-standard td,
+.fc-theme-standard th {
+  border: none !important;
+}
+
+/* ปรับปุ่ม prev/next ให้เป็นวงกลมสีจาง */
+.fc .fc-button {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Styling ปุ่มลูกศร */
+.fc .fc-button .fc-icon {
+  color: #12827C; /* สีเขียวเข้ม */
+  font-size: 1rem;
+}
+
+/* ใส่วงกลมพื้นจางรอบปุ่ม */
+.fc .fc-button .fc-icon::before {
+  display: inline-block;
+  background-color: #E6F4F1;
+  border-radius: 50%;
+  padding: 0.3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+/* ปิด background hover default */
+.fc .fc-button:hover {
+  background-color: transparent !important;
+}

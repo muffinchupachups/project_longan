@@ -24,8 +24,8 @@ export default function Homepage() {
           <ForecastBar />
 
           {/* กล่องคำแนะนำ */}
-          <div className="rounded-2xl bg-[#ffffff] shadow p-6 md:p-8">
-            <AdviceToday />
+          <div className="rounded-2xl bg-transparent shadow p-6 md:p-8">
+            <AdviceToday/>
           </div>
         </div>
       </section>

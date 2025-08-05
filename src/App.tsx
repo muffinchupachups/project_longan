@@ -14,7 +14,7 @@ import LandingPage from './pages/LandingPage';
 import DroneForm from './pages/joindrone';
 import Register2 from './pages/RegisterPage2';
 import Login2 from './pages/LoginPage2';
-
+import ServiceSetup from './pages/ServerSetup';
 function App() {
   return (
     <Router>
@@ -27,6 +27,7 @@ function App() {
         <Route path="/joindrone" element={<DroneForm/>} />
         <Route path="/login2" element={<Login2/>} />
         <Route path="/register2" element={<Register2/>} />
+        <Route path="/serversetup" element={<ServiceSetup/>} />
 
 
      <Route element={<Sidebarlayout />}>

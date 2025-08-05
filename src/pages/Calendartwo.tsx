@@ -7,6 +7,14 @@ import thLocale from "@fullcalendar/core/locales/th";
 export default function CalendarPage() {
   const [events, setEvents] = useState([
     { title: "🌱 ปลูกลำไย", date: "2025-06-06" },
+    { title: "✂️ ตัดแต่งกิ่ง", date: "2025-06-07" },
+    { title: "💧 รดน้ำต้นไม้", date: "2025-06-10" },
+    { title: "🍂 ใส่ปุ๋ย", date: "2025-06-14" },
+    { title: "🌱 ปลูกลำไย", date: "2025-06-15" },
+    { title: "💧 รดน้ำต้นไม้", date: "2025-06-23" },
+    { title: "✂️ ตัดแต่งกิ่ง", date: "2025-06-25" },
+    { title: "🍂 ใส่ปุ๋ย", date: "2025-06-27" },
+    { title: "💧 รดน้ำต้นไม้ ✂️ ตัดแต่งกิ่ง", date: "2025-06-28" }
   ]);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [newEventTitle, setNewEventTitle] = useState("");
@@ -25,7 +33,16 @@ export default function CalendarPage() {
 
   return (
     <div className="p-6 bg-[#f0fdfb] min-h-screen">
-      <h2 className="text-2xl font-semibold mb-4 text-teal-700">ปฏิทินกิจกรรมเกษตร</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-teal-700 flex items-center">
+        <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zm0-13H5V6h14v1z"/>
+        </svg>
+        ปฏิทินกิจกรรมเกษตร
+      </h2>
+      <div className="mb-2 text-right">
+        <button className="px-4 py-1 text-sm rounded bg-[#b2e1d9] text-teal-700 mr-2">Month</button>
+        <button className="px-4 py-1 text-sm rounded hover:bg-gray-200">Week</button>
+      </div>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
@@ -34,12 +51,28 @@ export default function CalendarPage() {
         dateClick={handleDateClick}
         height="auto"
         headerToolbar={{
-          left: "prev,next today",
+          left: "prev,next",
           center: "title",
-          right: "dayGridMonth,dayGridWeek"
+          right: ""
         }}
-        editable={true}
-        selectable={true}
+        dayCellClassNames={() => "border-none bg-transparent text-center py-2"}
+        dayCellContent={(arg) => {
+          const dateStr = arg.date.toISOString().split('T')[0];
+          const dayEvents = events.filter(e => e.date === dateStr);
+          const isMultiActivities = dayEvents.length > 1;
+
+          return (
+            <div className="flex flex-col items-center justify-center space-y-1">
+              <span>{arg.dayNumberText}</span>
+              {dayEvents.slice(0, 2).map((event, index) => (
+                <span key={index} className="text-sm">{event.title}</span>
+              ))}
+              {isMultiActivities && (
+                <span className="text-xs text-gray-500">{dayEvents.length} activities</span>
+              )}
+            </div>
+          );
+        }}
       />
 
       {/* Modal เพิ่มกิจกรรม */}
