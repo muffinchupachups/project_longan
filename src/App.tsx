@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import Homepage from './pages/Homepage';
 import Dashboard from './pages/Dashboard';
 import AlertPage from './pages/AlertPage';
@@ -15,8 +14,12 @@ import DroneForm from './pages/joindrone';
 import Register2 from './pages/RegisterPage2';
 import Login2 from './pages/LoginPage2';
 import ServiceSetup from './pages/ServerSetup';
-function App() {
+import ServerPage from './pages/SeverPage';
+
+function App() {  
+
   return (
+          <div className="min-h-screen font-sans">
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -28,6 +31,7 @@ function App() {
         <Route path="/login2" element={<Login2/>} />
         <Route path="/register2" element={<Register2/>} />
         <Route path="/serversetup" element={<ServiceSetup/>} />
+        <Route path="/server" element={<ServerPage/>} />
 
 
      <Route element={<Sidebarlayout />}>
@@ -42,6 +46,7 @@ function App() {
        </Route>
       </Routes>
     </Router>
+    </div>
   );
 }
 

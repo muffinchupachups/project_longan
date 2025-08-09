@@ -1,4 +1,4 @@
-// src/pages/Homepage.tsx
+
 import Header from "../components/Header";
 import HeroSection from "../components/HeroSection";
 import SensorStats from "../components/SensorStats";
@@ -41,14 +41,13 @@ export default function Homepage() {
 
           {/* ข่าวสาร 3 ช่อง */}
           <div>
-            <h3 className="text-lg font-semibold text-green-800 mb-4 flex items-center gap-2">
+            <h3 className="text-lg font-sans text-green-800 mb-4 flex items-center gap-2">
               <span className="text-yellow-500 text-xl"></span>
             </h3>
             <NewsSection />
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-[#234d38] text-white text-sm text-center py-6">
       </footer>

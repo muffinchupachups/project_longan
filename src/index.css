@@ -1,4 +1,15 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap");
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  font-family: "Kanit", ui-sans-serif, system-ui, -apple-system,
+               "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans Thai", sans-serif;
+}
+
+/* โค้ด CSS อื่น ๆ ของคุณต่อจากนี้ */
+
 /* Remove FullCalendar grid borders */
 .fc .fc-scrollgrid,
 .fc .fc-scrollgrid td,
@@ -44,7 +55,7 @@
   font-size: 1rem;
 }
 
-/* ใส่วงกลมพื้นจางรอบปุ่ม */
+
 .fc .fc-button .fc-icon::before {
   display: inline-block;
   background-color: #E6F4F1;
@@ -56,7 +67,7 @@
   text-align: center;
 }
 
-/* ปิด background hover default */
 .fc .fc-button:hover {
   background-color: transparent !important;
+
 }
