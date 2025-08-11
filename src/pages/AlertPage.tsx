@@ -40,12 +40,12 @@ export default function AlertPage() {
       <main className="p-6 space-y-8">
         {/* Current Alerts */}
         <section>
-          <h2 className="text-lg font-semibold mb-2">แจ้งเตือนปัจจุบัน <span className="text-sm bg-red-100 text-red-600 px-2 py-0.5 rounded">{currentAlerts.length} รายการ</span></h2>
+          <h2 className="text-lg font-sans mb-2">แจ้งเตือนปัจจุบัน <span className="text-sm bg-red-100 text-red-600 px-2 py-0.5 rounded">{currentAlerts.length} รายการ</span></h2>
           <div className="space-y-4">
             {currentAlerts.map((a, i) => (
               <div key={i} className={`border-l-4 rounded bg-white p-4 shadow ${a.color === 'red' ? 'border-red-500' : 'border-orange-400'}`}>
                 <div className="flex justify-between items-center mb-2">
-                  <div className="font-semibold text-md text-gray-800">{a.type} <span className="text-xs text-white bg-red-400 px-2 py-0.5 rounded-full ml-2">{a.severity}</span></div>
+                  <div className="font-sans text-md text-gray-800">{a.type} <span className="text-xs text-white bg-red-400 px-2 py-0.5 rounded-full ml-2">{a.severity}</span></div>
                   <span className="text-sm text-gray-400">{a.time}</span>
                 </div>
                 <p className="text-sm text-gray-700">{a.message}</p>

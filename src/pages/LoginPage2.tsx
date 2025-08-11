@@ -6,9 +6,8 @@ export default function Login2() {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 🔐 ถ้ามีการตรวจสอบจริง เช่น call API ตรงนี้ ให้ทำก่อน navigate
-    // สมมุติว่าล็อกอินสำเร็จแล้ว
-    navigate("/joindrone");
+
+    navigate("/serversetup");
   };
 
   return (

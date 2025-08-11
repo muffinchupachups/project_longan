@@ -1,10 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-export default {
-  theme: {
-    extend: {
-      fontFamily: { sans: ['Kanit', 'ui-sans-serif', 'system-ui'] },
-    },
-  },
-  plugins: [],
-};
 
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: { extend: { fontFamily: { sans: ['Kanit', 'ui-sans-serif', 'system-ui'] } } },
+  plugins: [],
+}

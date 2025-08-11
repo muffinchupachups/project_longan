@@ -10,7 +10,6 @@ import Settingspage from './pages/Settingpage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import LandingPage from './pages/LandingPage';
-import DroneForm from './pages/joindrone';
 import Register2 from './pages/RegisterPage2';
 import Login2 from './pages/LoginPage2';
 import ServiceSetup from './pages/ServerSetup';
@@ -19,7 +18,7 @@ import ServerPage from './pages/SeverPage';
 function App() {  
 
   return (
-          <div className="min-h-screen font-sans">
+          <div id="app-root" className="min-h-screen font-sans">
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -27,7 +26,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/landing" element={<LandingPage/>} />
-        <Route path="/joindrone" element={<DroneForm/>} />
         <Route path="/login2" element={<Login2/>} />
         <Route path="/register2" element={<Register2/>} />
         <Route path="/serversetup" element={<ServiceSetup/>} />

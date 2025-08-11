@@ -5,7 +5,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-[#F4F6EC] flex">
       <main className="flex-1 p-6">
         <div className="mb-4">
-          <h1 className="text-2xl font-semibold text-[#1E3A2E]">สวัสดีคุณสมชาย 👋</h1>
+          <h1 className="text-2xl font-sans text-[#1E3A2E]">สวัสดีคุณสมชาย 👋</h1>
           <p className="text-sm text-gray-600">แปลงลำไย “สวนลำไย บ้านวังชิ้น” อำเภอสบจู อำเภอวังชิ้น พื้นที่ 12 ไร่ ใกล้ลำห้วยแคววัง</p>
         </div>
 
@@ -22,7 +22,7 @@ export default function Dashboard() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <div className="bg-[#E6F4F1] rounded-xl shadow p-4 md:col-span-2">
-            <h2 className="text-md font-semibold text-[#1E3A2E] mb-3">ข้อแนะนำวันนี้ (El Niño)</h2>
+            <h2 className="text-md font-sans text-[#1E3A2E] mb-3">ข้อแนะนำวันนี้ (El Niño)</h2>
             <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
               <li>รดน้ำลำไยเพิ่มเพื่อรักษา</li>
               <li>ควบคุมน้ำในดินเพื่อหลีกเลี่ยงอาการแห้งตาย</li>
@@ -32,14 +32,14 @@ export default function Dashboard() {
           </div>
 
           <div className="bg-white rounded-xl shadow p-4">
-            <h2 className="text-md font-semibold text-[#1E3A2E] mb-3">ปฏิทิน</h2>
+            <h2 className="text-md font-sans text-[#1E3A2E] mb-3">ปฏิทิน</h2>
             <Calendar />
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-[#FFF1E7] rounded-xl shadow p-4">
-            <h2 className="text-md font-semibold text-[#CC4B00] mb-3">แจ้งเตือนสำคัญ</h2>
+            <h2 className="text-md font-sans text-[#CC4B00] mb-3">แจ้งเตือนสำคัญ</h2>
             <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
               <li>คลื่นความร้อน: อุณหภูมิสูงกว่า 35°C</li>
               <li>ฝนตกน้อยผิดปกติ (El Niño)</li>
@@ -47,7 +47,7 @@ export default function Dashboard() {
           </div>
 
           <div className="bg-white rounded-xl shadow p-4 md:col-span-2">
-            <h2 className="text-md font-semibold text-[#1E3A2E] mb-3">แนวโน้มการเจริญเติบโต</h2>
+            <h2 className="text-md font-sans text-[#1E3A2E] mb-3">แนวโน้มการเจริญเติบโต</h2>
             <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
               <p>การเติบโตดีเด่น</p>
               <p>การออกดอก/ติดผล</p>
