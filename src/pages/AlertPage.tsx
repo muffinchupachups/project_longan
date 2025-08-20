@@ -1,4 +1,3 @@
-import { FiBell } from "react-icons/fi";
 const currentAlerts = [
   {
     type: "คลื่นความร้อนรุนแรง",
