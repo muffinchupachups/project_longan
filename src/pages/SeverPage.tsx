@@ -92,6 +92,28 @@ export default function ServerPage() {
           ))}
         </div>
 
+      {/* ✅ Notices ขึ้นมาก่อน */}
+<div className="rounded-lg border p-4 mt-6 bg-white">
+  <h2 className="font-semibold mb-3 text-slate-800">การแจ้งเตือน</h2>
+  <div className="space-y-3">
+    {notices.map((n, i) => {
+      const tone =
+        i === 0
+          ? "bg-blue-100 border-l-4 border-blue-500 text-blue-800"
+          : i === 1
+          ? "bg-green-100 border-l-4 border-green-500 text-green-800"
+          : "bg-orange-100 border-l-4 border-orange-500 text-orange-800";
+      return (
+        <div key={i} className={`rounded-md p-3 ${tone}`}>
+          <p className="font-semibold">{n.title}</p>
+          <p className="text-sm">{n.desc}</p>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
+
         {/* Jobs */}
         <div className="rounded-lg border p-4 mt-6 bg-green-50 border-green-200">
           <h2 className="font-semibold mb-3 text-green-700">งานปัจจุบัน</h2>
@@ -132,38 +154,25 @@ export default function ServerPage() {
           </div>
         </div>
 
-        {/* Equipments + Notices */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          <div className="rounded-lg border p-4 bg-white">
-            <h2 className="font-semibold mb-3 text-slate-800">สถานะอุปกรณ์</h2>
-            <div className="space-y-3">
-              {equips.map((e) => (
-                <div key={e.name} className="rounded-md border p-3 flex items-center justify-between">
-                  <div>
-                    <p className="font-medium text-slate-800">{e.name}</p>
-                    <p className="text-sm text-slate-500">{e.desc}</p>
-                  </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${e.tone}`}>
-                    {e.status}
-                  </span>
+        {/* Equipments */}
+        <div className="rounded-lg border p-4 bg-white mt-6">
+          <h2 className="font-semibold mb-3 text-slate-800">สถานะอุปกรณ์</h2>
+          <div className="space-y-3">
+            {equips.map((e) => (
+              <div key={e.name} className="rounded-md border p-3 flex items-center justify-between">
+                <div>
+                  <p className="font-medium text-slate-800">{e.name}</p>
+                  <p className="text-sm text-slate-500">{e.desc}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-lg border p-4 bg-white">
-            <h2 className="font-semibold mb-3 text-slate-800">การแจ้งเตือน</h2>
-            <div className="space-y-3">
-              {notices.map((n, i) => (
-                <div key={i} className={`rounded-md border p-3 ${n.tone}`}>
-                  <p className="font-semibold text-slate-800">{n.title}</p>
-                  <p className="text-sm text-slate-600">{n.desc}</p>
-                </div>
-              ))}
-            </div>
+                <span className={`px-3 py-1 rounded-full text-xs font-medium ${e.tone}`}>
+                  {e.status}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </main>
     </div>
   );
 }
+
