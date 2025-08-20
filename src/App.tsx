@@ -13,7 +13,10 @@ import LandingPage from './pages/LandingPage';
 import Register2 from './pages/RegisterPage2';
 import Login2 from './pages/LoginPage2';
 import ServiceSetup from './pages/ServerSetup';
-import ServerPage from './pages/SeverPage';
+import SeverPage from './pages/SeverPage';
+import CalendarServer from './pages/Calendarserver';
+import ProfilePage from './pages/ProfilePage';
+import ProfileView from './pages/ProfileView';
 
 function App() {  
 
@@ -29,7 +32,10 @@ function App() {
         <Route path="/login2" element={<Login2/>} />
         <Route path="/register2" element={<Register2/>} />
         <Route path="/serversetup" element={<ServiceSetup/>} />
-        <Route path="/server" element={<ServerPage/>} />
+        <Route path="/severpage" element={<SeverPage/>} />
+        <Route path="/calendarserver" element={<CalendarServer/>} />
+        <Route path="/profilepage" element={<ProfilePage/>} />
+        <Route path="/profileview" element={<ProfileView/>}/>
 
 
      <Route element={<Sidebarlayout />}>

@@ -1,253 +1,170 @@
 import React from "react";
-import {
-  FiBell,
-  FiCalendar,
-  FiClock,
-  FiMapPin,
-  FiTag,
-  FiTool,
-  FiTrendingUp,
-  FiHome,
-  FiClipboard,
-  FiSettings,
-  FiUser,
-} from "react-icons/fi";
-import { FaLeaf } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FiBell, FiHome } from "react-icons/fi";
 
-type Stat = { label: string; value: string; icon: React.ReactNode; wrap: string; valueCls?: string };
-type Job = {
-  title: string;
-  location: string;
-  date: string;
-  status: "กำลังดำเนินการ" | "รอเริ่มงาน";
-  price: string;
-  area: string;
-  primary: { text: string; intent: "green" | "blue" };
-  secondary: { text: string };
-};
-type Equip = { name: string; desc: string; status: "พร้อมใช้งาน" | "ต้องซ่อม"; tone: "green" | "yellow" };
-type Notice = { title: string; desc: string; tone: "blue" | "green" | "orange" };
+/* ===== Types ===== */
+type Stat = { label: string; value: string; icon: string; tone: string };
+type Job = { title: string; location: string; date: string; price: string; area: string; status: "ทำเสร็จแล้ว" | "รอดำเนินการ" };
+type Equip = { name: string; desc: string; status: string; tone: string };
+type Notice = { title: string; desc: string; tone: string };
 
+/* ===== Data ===== */
 const stats: Stat[] = [
-  { label: "สถานะปัจจุบัน", value: "พร้อมรับงาน", icon: <FiHome />, wrap: "bg-emerald-50 text-emerald-700" },
-  { label: "งานรอดำเนินการ", value: "5", icon: <FiClipboard />, wrap: "bg-sky-50 text-sky-700" },
-  { label: "รายได้เดือนนี้", value: "฿12,500", icon: <FiTrendingUp />, wrap: "bg-amber-50 text-amber-700", valueCls: "tabular-nums" },
-  { label: "คะแนนรีวิว", value: "4.8", icon: <FaLeaf />, wrap: "bg-orange-50 text-orange-700" },
+  { label: "สถานะปัจจุบัน", value: "พร้อมรับงาน", icon: "✅", tone: "bg-green-50 border-green-200" },
+  { label: "งานรอดำเนินการ", value: "5", icon: "📋", tone: "bg-blue-50 border-blue-200" },
+  { label: "รายได้เดือนนี้", value: "฿12,500", icon: "💰", tone: "bg-amber-50 border-amber-200" },
+  { label: "คะแนนรีวิว", value: "4.8", icon: "⭐", tone: "bg-orange-50 border-orange-200" },
 ];
-
 
 const jobs: Job[] = [
   {
     title: "จัดแปลงนา - ไร่คุณสมศักดิ์",
     location: "อำเภอเมือง, จังหวัดลำปาง",
     date: "วันที่ 15 มกราคม 2025, 08:00-12:00",
-    status: "กำลังดำเนินการ",
     price: "฿2,500",
     area: "5 ไร่",
-    primary: { text: "ยืนยันเวลา", intent: "green" },
-    secondary: { text: "ติดต่อผู้จ้าง" },
+    status: "ทำเสร็จแล้ว",
   },
   {
     title: "ตัดแต่งกิ่ง - สวนลุงคำปันทอง",
     location: "อำเภอห้างฉัตร, จังหวัดลำปาง",
-    date: "วันที่ 16 มกราคม 2025, 08:00-10:00",
-    status: "รอเริ่มงาน",
+    date: "วันที่ 16 มกราคม 2025, 06:00-10:00",
     price: "฿1,800",
     area: "3 ไร่",
-    primary: { text: "เริ่มงาน", intent: "blue" },
-    secondary: { text: "ดูรายละเอียด" },
+    status: "รอดำเนินการ",
   },
 ];
 
 const equips: Equip[] = [
-  { name: "DJI Agras T30", desc: "โดรนรุ่น T30 30 ลิตร", status: "พร้อมใช้งาน", tone: "green" },
-  { name: "เครื่องตัดแต่งกิ่ง", desc: "Stihl HT 103", status: "ต้องซ่อม", tone: "yellow" },
+  { name: "DJI Agras T30", desc: "โดรนรุ่น T30 30 ลิตร", status: "พร้อมใช้งาน", tone: "bg-green-100 text-green-700" },
+  { name: "เครื่องตัดแต่งกิ่ง", desc: "Stihl HT 103", status: "ต้องซ่อม", tone: "bg-yellow-100 text-yellow-700" },
 ];
 
 const notices: Notice[] = [
-  { title: "งานเก็บเกี่ยวรอคิว", desc: "สวนลุงคำปันทอง – 18 ม.ค. 2025", tone: "blue" },
-  { title: "งานเสร็จสิ้น", desc: "ได้รับแล้ว ฿2,000 แล้ว", tone: "green" },
-  { title: "รีวิวใหม่", desc: "คุณสมชายให้ 5 ดาว", tone: "orange" },
+  { title: "งานเก็บเกี่ยวรอคิว", desc: "สวนลุงคำปันทอง – 18 ม.ค. 2025", tone: "bg-blue-50" },
+  { title: "งานเสร็จสิ้น", desc: "ได้รับแล้ว ฿2,000", tone: "bg-green-50" },
+  { title: "รีวิวใหม่", desc: "คุณสมชายให้ 5 ดาว", tone: "bg-orange-50" },
 ];
 
+/* ===== Main Page ===== */
 export default function ServerPage() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
-      {/* Top bar */}
+      {/* Header */}
       <header className="sticky top-0 z-30 bg-white border-b">
         <div className="mx-auto max-w-7xl px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2 font-sans">
-            <div className="h-8 w-8 rounded-md bg-emerald-600 grid place-items-center text-white">
-              <FaLeaf />
-            </div>
-            <span>ลองกันเซอร์วิส</span>
+            <span className="text-green-600 text-lg">🌱</span>
+            <span className="font-medium">Smart Sensor Longan</span>
           </div>
 
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
-            <a className="flex items-center gap-2 text-emerald-600 fonts-sans" href="#"><FiHome /> แดชบอร์ด</a>
-            <a className="hover:text-slate-900" href="#">ปฏิทินงาน</a>
+            <button className="flex items-center gap-1 text-green-600 font-semibold">
+              <FiHome /> แดชบอร์ด
+            </button>
+            <Link to="/calendarserver" className="hover:text-slate-900">ปฏิทินงาน</Link>
             <a className="hover:text-slate-900" href="#">อุปกรณ์</a>
             <a className="hover:text-slate-900" href="#">ราคา</a>
-            <a className="hover:text-slate-900" href="#">โปรไฟล์</a>
+            <Link to="/profileview" className="hover:text-slate-900">โปรไฟล์</Link>
           </nav>
 
-          <div className="flex items-center gap-4">
-            <button className="relative p-2 rounded-full hover:bg-slate-100">
-              <FiBell className="h-5 w-5" />
-              <span className="absolute -top-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-rose-500" />
-            </button>
-            <div className="flex items-center gap-2">
-              <img
-                alt="avatar"
-                src="https://i.pravatar.cc/40?img=68"
-                className="h-8 w-8 rounded-full"
-              />
-              <span className="hidden sm:block text-sm text-slate-700">สมชาย ใจดี</span>
-            </div>
-          </div>
+          <button className="relative p-2 rounded-full hover:bg-slate-100">
+            <FiBell className="h-5 w-5" />
+            <span className="absolute -top-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-red-500" />
+          </button>
         </div>
       </header>
 
-      {/* Content */}
+      {/* Main */}
       <main className="mx-auto max-w-7xl px-4 py-6">
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           {stats.map((s) => (
-            <StatCard key={s.label} {...s} />
+            <div
+              key={s.label}
+              className={`rounded-lg border p-4 flex items-center gap-3 ${s.tone}`}
+            >
+              <div className="text-xl">{s.icon}</div>
+              <div>
+                <p className="text-sm text-slate-600">{s.label}</p>
+                <p className="text-lg font-semibold">{s.value}</p>
+              </div>
+            </div>
           ))}
         </div>
 
-
-        {/* Current jobs */}
-        <Section title="งานปัจจุบัน">
-          <div className="divide-y">
+        {/* Jobs */}
+        <div className="rounded-lg border p-4 mt-6 bg-green-50 border-green-200">
+          <h2 className="font-semibold mb-3 text-green-700">งานปัจจุบัน</h2>
+          <div className="divide-y divide-slate-200">
             {jobs.map((j) => (
-              <JobItem key={j.title} {...j} />
+              <div key={j.title} className="py-3 flex justify-between items-start">
+                <div>
+                  <h3 className="font-medium text-slate-800">{j.title}</h3>
+                  <p className="text-sm text-slate-600 mt-1">📍 {j.location}</p>
+                  <p className="text-sm text-slate-600 mt-1">⏰ {j.date}</p>
+
+                  {j.status === "ทำเสร็จแล้ว" ? (
+                    <div className="mt-2 flex gap-2">
+                      <button className="px-3 py-1 bg-green-600 text-white text-sm rounded-md hover:bg-green-700">
+                        ยืนยันสถานะ
+                      </button>
+                      <button className="px-3 py-1 bg-slate-200 text-slate-700 text-sm rounded-md">
+                        ติดต่อผู้จ้าง
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="mt-2 flex gap-2">
+                      <button className="px-3 py-1 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700">
+                        เริ่มงาน
+                      </button>
+                      <button className="px-3 py-1 bg-slate-200 text-slate-700 text-sm rounded-md">
+                        ดูรายละเอียด
+                      </button>
+                    </div>
+                  )}
+                </div>
+                <div className="text-right">
+                  <p className="font-semibold text-green-700">{j.price}</p>
+                  <p className="text-sm text-slate-600">{j.area}</p>
+                </div>
+              </div>
             ))}
           </div>
-        </Section>
+        </div>
 
-        {/* Equipment + Notices */}
+        {/* Equipments + Notices */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          <Section title="สถานะอุปกรณ์">
+          <div className="rounded-lg border p-4 bg-white">
+            <h2 className="font-semibold mb-3 text-slate-800">สถานะอุปกรณ์</h2>
             <div className="space-y-3">
               {equips.map((e) => (
-                <EquipmentItem key={e.name} {...e} />
+                <div key={e.name} className="rounded-md border p-3 flex items-center justify-between">
+                  <div>
+                    <p className="font-medium text-slate-800">{e.name}</p>
+                    <p className="text-sm text-slate-500">{e.desc}</p>
+                  </div>
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${e.tone}`}>
+                    {e.status}
+                  </span>
+                </div>
               ))}
             </div>
-          </Section>
+          </div>
 
-          <Section title="การแจ้งเตือน">
+          <div className="rounded-lg border p-4 bg-white">
+            <h2 className="font-semibold mb-3 text-slate-800">การแจ้งเตือน</h2>
             <div className="space-y-3">
               {notices.map((n, i) => (
-                <NoticeItem key={i} {...n} />
+                <div key={i} className={`rounded-md border p-3 ${n.tone}`}>
+                  <p className="font-semibold text-slate-800">{n.title}</p>
+                  <p className="text-sm text-slate-600">{n.desc}</p>
+                </div>
               ))}
             </div>
-          </Section>
-        </div>
-      </main>
-    </div>
-  );
-}
-
-/* ============ components ============ */
-
-function Card({ className = "", children }: { className?: string; children: React.ReactNode }) {
-  return <div className={`mt-6 rounded-xl border bg-white p-4 shadow-sm ${className}`}>{children}</div>;
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <Card>
-      <h2 className="font-semibold mb-4">{title}</h2>
-      {children}
-    </Card>
-  );
-}
-
-function StatCard({ label, value, icon, wrap, valueCls }: Stat) {
-  return (
-    <div className={`rounded-xl border p-4 shadow-sm flex items-center gap-3 ${wrap} border-current/20`}>
-      <div className="h-10 w-10 grid place-items-center rounded-lg bg-white/70">
-        {icon}
-      </div>
-      <div className="min-w-0">
-        <p className="text-xs opacity-80">{label}</p>
-        <p className={`text-lg font-semibold truncate ${valueCls ?? ""}`}>{value}</p>
-      </div>
-    </div>
-  );
-}
-
-function Badge({ tone, children }: { tone: "green" | "blue" | "gray"; children: React.ReactNode }) {
-  const tones: Record<string, string> = {
-    green: "bg-emerald-100 text-emerald-700",
-    blue: "bg-sky-100 text-sky-700",
-    gray: "bg-slate-200 text-slate-700",
-  };
-  return <span className={`px-2.5 py-1 rounded-md text-xs font-medium ${tones[tone]}`}>{children}</span>;
-}
-
-function JobItem(j: Job) {
-  return (
-    <div className="py-4">
-      <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0">
-          <h3 className="font-semibold text-slate-900">{j.title}</h3>
-          <p className="text-sm text-slate-500 flex items-center gap-2 mt-1">
-            <FiMapPin className="shrink-0" /> {j.location}
-          </p>
-          <p className="text-sm text-slate-500 flex items-center gap-2 mt-1">
-            <FiClock className="shrink-0" /> {j.date}
-          </p>
-
-          <div className="mt-3 flex flex-wrap items-center gap-2">
-            <Badge tone={j.status === "กำลังดำเนินการ" ? "green" : "blue"}>{j.status}</Badge>
-            <button
-              className={`px-3 py-1.5 rounded-md text-sm text-white ${
-                j.primary.intent === "green" ? "bg-emerald-600 hover:bg-emerald-700" : "bg-sky-600 hover:bg-sky-700"
-              }`}
-            >
-              {j.primary.text}
-            </button>
-            <button className="px-3 py-1.5 rounded-md text-sm bg-slate-200 text-slate-800 hover:bg-slate-300">
-              {j.secondary.text}
-            </button>
           </div>
         </div>
-
-        <div className="text-right shrink-0">
-          <div className="text-emerald-700 font-semibold">{j.price}</div>
-          <div className="text-sm text-slate-500">{j.area}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function EquipmentItem(e: Equip) {
-  const tone = e.tone === "green" ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700";
-  return (
-    <div className="rounded-lg border p-3 flex items-center justify-between">
-      <div>
-        <p className="font-medium">{e.name}</p>
-        <p className="text-sm text-slate-500">{e.desc}</p>
-      </div>
-      <span className={`px-3 py-1 rounded-full text-xs font-medium ${tone}`}>{e.status}</span>
-    </div>
-  );
-}
-
-function NoticeItem(n: Notice) {
-  const tone: Record<Notice["tone"], string> = {
-    blue: "bg-sky-50 border-sky-100",
-    green: "bg-emerald-50 border-emerald-100",
-    orange: "bg-orange-50 border-orange-100",
-  };
-  return (
-    <div className={`rounded-lg border p-3 ${tone[n.tone]}`}>
-      <p className="font-medium">{n.title}</p>
-      <p className="text-sm text-slate-600">{n.desc}</p>
+      </main>
     </div>
   );
 }

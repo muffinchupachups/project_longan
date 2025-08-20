@@ -15,7 +15,7 @@ export default function ServiceSetup() {
   const handleSave = () => {
     // TODO: ใส่ logic บันทึกข้อมูลจริง ๆ ที่นี่ (call API/validate ฯลฯ)
     // สมมุติบันทึกสำเร็จ → ไปหน้าอื่น
-    navigate("/server"); // <-- เปลี่ยน path ตามที่ต้องการ
+    navigate("/severpage"); // <-- เปลี่ยน path ตามที่ต้องการ
   };
 
   return (

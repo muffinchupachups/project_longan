@@ -9,8 +9,6 @@ html, body, #root {
 }
 
 
-
-/* Remove FullCalendar grid borders */
 .fc .fc-scrollgrid,
 .fc .fc-scrollgrid td,
 .fc .fc-scrollgrid th {
@@ -71,10 +69,9 @@ html, body, #root {
   background-color: transparent !important;
 
 }
-/* ให้ทุก element สืบทอดจากรากแอป */
+
 #app-root, #app-root * { font-family: inherit; }
 
-/* กรณีไลบรารีตั้งฟอนต์ของมันเอง → บังคับ Kanit คืน */
 .fc, .fc * {
   font-family: "Kanit", ui-sans-serif, system-ui, -apple-system,
                "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans Thai", sans-serif !important;
