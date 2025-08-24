@@ -1,4 +1,6 @@
-import {FiFilter, FiPlus } from "react-icons/fi";
+import { FiFilter, FiPlus } from "react-icons/fi";
+import { Link } from "react-router-dom";   // ✅ import Link
+
 const plots = [
   {
     name: "แปลงลำไยบ้านใต้",
@@ -35,17 +37,21 @@ const plots = [
   },
 ];
 
-export default function plotsPage() {
+export default function PlotsPage() {
   return (
     <div className="min-h-screen bg-[#F5F3EE] text-gray-800">
-
       {/* Content */}
       <main className="p-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-semibold">แปลงลำไยของฉัน</h2>
-          <button className="flex items-center bg-green-600 text-white px-4 py-2 rounded shadow">
+
+          {/* ✅ ปุ่มลิงก์ไปหน้า AddNewPlot */}
+          <Link
+            to="/addnewplot"
+            className="flex items-center bg-green-600 text-white px-4 py-2 rounded shadow hover:bg-green-700"
+          >
             <FiPlus className="mr-2" /> เพิ่มแปลงใหม่
-          </button>
+          </Link>
         </div>
 
         {/* Filter Bar */}
@@ -71,21 +77,47 @@ export default function plotsPage() {
         {/* Plot Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {plots.map((plot, idx) => (
-            <div key={idx} className={`rounded-xl shadow bg-white p-4 border-t-4 ${plot.color === 'green' ? 'border-green-400' : 'border-orange-300'}`}>
+            <div
+              key={idx}
+              className={`rounded-xl shadow bg-white p-4 border-t-4 ${
+                plot.color === "green"
+                  ? "border-green-400"
+                  : "border-orange-300"
+              }`}
+            >
               <div className="flex justify-between items-center mb-1">
                 <h3 className="font-bold text-lg">{plot.name}</h3>
-                <span className={`text-sm ${plot.color === 'green' ? 'text-green-600' : 'text-orange-600'}`}>{plot.status}</span>
+                <span
+                  className={`text-sm ${
+                    plot.color === "green"
+                      ? "text-green-600"
+                      : "text-orange-600"
+                  }`}
+                >
+                  {plot.status}
+                </span>
               </div>
               <p className="text-sm text-gray-600 mb-2">{plot.location}</p>
               <p className="text-sm mb-4">ขนาด: {plot.size}</p>
 
               <div className="text-sm grid grid-cols-3 gap-2 mb-4">
-                <div>ความชื้น<br /><strong>{plot.moisture}</strong></div>
-                <div>ต้น<br /><strong>{plot.treeHealth}</strong></div>
-                <div>ปุ๋ย<br /><strong>{plot.fertilizer}</strong></div>
+                <div>
+                  ความชื้น<br />
+                  <strong>{plot.moisture}</strong>
+                </div>
+                <div>
+                  ต้น<br />
+                  <strong>{plot.treeHealth}</strong>
+                </div>
+                <div>
+                  ปุ๋ย<br />
+                  <strong>{plot.fertilizer}</strong>
+                </div>
               </div>
 
-              <p className="text-xs text-gray-400 text-right">อัปเดตล่าสุด: {plot.updated}</p>
+              <p className="text-xs text-gray-400 text-right">
+                อัปเดตล่าสุด: {plot.updated}
+              </p>
             </div>
           ))}
         </div>

@@ -17,6 +17,8 @@ import SeverPage from './pages/SeverPage';
 import CalendarServer from './pages/Calendarserver';
 import ProfilePage from './pages/ProfilePage';
 import ProfileView from './pages/ProfileView';
+import AddNewPlot from './pages/AddNewPlot';
+
 
 function App() {  
 
@@ -36,6 +38,7 @@ function App() {
         <Route path="/calendarserver" element={<CalendarServer/>} />
         <Route path="/profilepage" element={<ProfilePage/>} />
         <Route path="/profileview" element={<ProfileView/>}/>
+        
 
 
      <Route element={<Sidebarlayout />}>
@@ -45,7 +48,7 @@ function App() {
         <Route path="/fertilizer" element={<FertilizerPage />} />
         <Route path="/alert" element={<AlertPage />} />
         <Route path="/setting" element={<Settingspage />} />
-        
+        <Route path="/addnewplot" element={<AddNewPlot/>}/>
       
        </Route>
       </Routes>
