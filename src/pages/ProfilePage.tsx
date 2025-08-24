@@ -73,20 +73,18 @@ const ProfilePage: React.FC = () => {
         <div className="mx-auto max-w-7xl px-4 h-14 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2 font-sans">
-            <div className="h-8 w-8 rounded-md bg-emerald-600 grid place-items-center text-white">
-              <FaLeaf />
-            </div>
-            <span className="font-semibold">Smart Sensor longan</span>
+             <img
+             src="/images/logo.png"
+             alt="Logo"
+             className="h-8 w-8 object-contain"/>
+            <span className="font-medium">Smart Sensor Longan</span>
           </div>
-
           {/* Menu */}
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
             <Link to="/severpage" className="hover:text-slate-900 flex items-center gap-1">
               <FiHome /> แดชบอร์ด
             </Link>
             <Link to="/calendarserver" className="hover:text-slate-900">ปฏิทินงาน</Link>
-            <Link to="/devices" className="hover:text-slate-900">อุปกรณ์</Link>
-            <Link to="/pricing" className="hover:text-slate-900">ราคา</Link>
             <Link to="/profilepage" className="text-emerald-600 font-semibold">
               โปรไฟล์
             </Link>

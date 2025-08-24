@@ -27,9 +27,10 @@ export default function ServiceSetup() {
         {/* Title */}
         <div className="mb-5">
           <div className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 shadow-sm border border-[#d9eadf]">
-            <div className="h-8 w-8 rounded-lg grid place-items-center bg-emerald-600 text-white">
-              <FaLeaf />
-            </div>
+             <img
+             src="/images/logo.png"
+             alt="Logo"
+             className="h-15 w-15 object-contain"/>
             <h1 className="text-xl sm:text-2xl font-bold text-[#2f6b4f]">
               ลงทะเบียนสำหรับผู้ให้บริการ <span className="ml-1">👋</span>
             </h1>

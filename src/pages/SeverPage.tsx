@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { FiBell, FiHome } from "react-icons/fi";
 
+
 /* ===== Types ===== */
 type Stat = { label: string; value: string; icon: string; tone: string };
 type Job = { title: string; location: string; date: string; price: string; area: string; status: "ทำเสร็จแล้ว" | "รอดำเนินการ" };
-type Equip = { name: string; desc: string; status: string; tone: string };
 type Notice = { title: string; desc: string; tone: string };
 
 /* ===== Data ===== */
@@ -34,11 +34,6 @@ const jobs: Job[] = [
   },
 ];
 
-const equips: Equip[] = [
-  { name: "DJI Agras T30", desc: "โดรนรุ่น T30 30 ลิตร", status: "พร้อมใช้งาน", tone: "bg-green-100 text-green-700" },
-  { name: "เครื่องตัดแต่งกิ่ง", desc: "Stihl HT 103", status: "ต้องซ่อม", tone: "bg-yellow-100 text-yellow-700" },
-];
-
 const notices: Notice[] = [
   { title: "งานเก็บเกี่ยวรอคิว", desc: "สวนลุงคำปันทอง – 18 ม.ค. 2025", tone: "bg-blue-50" },
   { title: "งานเสร็จสิ้น", desc: "ได้รับแล้ว ฿2,000", tone: "bg-green-50" },
@@ -53,7 +48,10 @@ export default function ServerPage() {
       <header className="sticky top-0 z-30 bg-white border-b">
         <div className="mx-auto max-w-7xl px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2 font-sans">
-            <span className="text-green-600 text-lg">🌱</span>
+          <img
+             src="/images/logo.png"
+             alt="Logo"
+             className="h-8 w-8 object-contain"/>
             <span className="font-medium">Smart Sensor Longan</span>
           </div>
 
@@ -62,8 +60,6 @@ export default function ServerPage() {
               <FiHome /> แดชบอร์ด
             </button>
             <Link to="/calendarserver" className="hover:text-slate-900">ปฏิทินงาน</Link>
-            <a className="hover:text-slate-900" href="#">อุปกรณ์</a>
-            <a className="hover:text-slate-900" href="#">ราคา</a>
             <Link to="/profileview" className="hover:text-slate-900">โปรไฟล์</Link>
           </nav>
 
@@ -92,27 +88,26 @@ export default function ServerPage() {
           ))}
         </div>
 
-      {/* ✅ Notices ขึ้นมาก่อน */}
-<div className="rounded-lg border p-4 mt-6 bg-white">
-  <h2 className="font-semibold mb-3 text-slate-800">การแจ้งเตือน</h2>
-  <div className="space-y-3">
-    {notices.map((n, i) => {
-      const tone =
-        i === 0
-          ? "bg-blue-100 border-l-4 border-blue-500 text-blue-800"
-          : i === 1
-          ? "bg-green-100 border-l-4 border-green-500 text-green-800"
-          : "bg-orange-100 border-l-4 border-orange-500 text-orange-800";
-      return (
-        <div key={i} className={`rounded-md p-3 ${tone}`}>
-          <p className="font-semibold">{n.title}</p>
-          <p className="text-sm">{n.desc}</p>
+        {/* ✅ Notices ขึ้นมาก่อน */}
+        <div className="rounded-lg border p-4 mt-6 bg-white">
+          <h2 className="font-semibold mb-3 text-slate-800">การแจ้งเตือน</h2>
+          <div className="space-y-3">
+            {notices.map((n, i) => {
+              const tone =
+                i === 0
+                  ? "bg-blue-100 border-l-4 border-blue-500 text-blue-800"
+                  : i === 1
+                  ? "bg-green-100 border-l-4 border-green-500 text-green-800"
+                  : "bg-orange-100 border-l-4 border-orange-500 text-orange-800";
+              return (
+                <div key={i} className={`rounded-md p-3 ${tone}`}>
+                  <p className="font-semibold">{n.title}</p>
+                  <p className="text-sm">{n.desc}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      );
-    })}
-  </div>
-</div>
-
 
         {/* Jobs */}
         <div className="rounded-lg border p-4 mt-6 bg-green-50 border-green-200">
@@ -153,26 +148,7 @@ export default function ServerPage() {
             ))}
           </div>
         </div>
-
-        {/* Equipments */}
-        <div className="rounded-lg border p-4 bg-white mt-6">
-          <h2 className="font-semibold mb-3 text-slate-800">สถานะอุปกรณ์</h2>
-          <div className="space-y-3">
-            {equips.map((e) => (
-              <div key={e.name} className="rounded-md border p-3 flex items-center justify-between">
-                <div>
-                  <p className="font-medium text-slate-800">{e.name}</p>
-                  <p className="text-sm text-slate-500">{e.desc}</p>
-                </div>
-                <span className={`px-3 py-1 rounded-full text-xs font-medium ${e.tone}`}>
-                  {e.status}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
       </main>
     </div>
   );
 }
-

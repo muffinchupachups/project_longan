@@ -140,9 +140,10 @@ const CalendarServer: React.FC = () => {
       <header className="sticky top-0 z-30 bg-white border-b">
         <div className="mx-auto max-w-7xl px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2 font-sans">
-            <div className="h-8 w-8 rounded-md bg-emerald-600 grid place-items-center text-white">
-              <FaLeaf />
-            </div>
+            <img
+             src="/images/logo.png"
+             alt="Logo"
+             className="h-8 w-8 object-contain"/>
             <span>Smart Sensor longan</span>
           </div>
 
@@ -151,8 +152,6 @@ const CalendarServer: React.FC = () => {
               <FiHome /> แดชบอร์ด
             </Link>
             <button className="text-emerald-600 font-semibold">ปฏิทินงาน</button>
-            <a className="hover:text-slate-900" href="#">อุปกรณ์</a>
-            <a className="hover:text-slate-900" href="#">ราคา</a>
             <Link to="/profileview" className="hover:text-slate-900">
               โปรไฟล์
             </Link>
