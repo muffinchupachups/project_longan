@@ -18,6 +18,8 @@ import CalendarServer from './pages/Calendarserver';
 import ProfilePage from './pages/ProfilePage';
 import ProfileView from './pages/ProfileView';
 import AddNewPlot from './pages/AddNewPlot';
+import FindProviders from './pages/FindProviders';
+import ProviderDetail from './pages/ProviderDetail';
 
 
 function App() {  
@@ -38,7 +40,7 @@ function App() {
         <Route path="/calendarserver" element={<CalendarServer/>} />
         <Route path="/profilepage" element={<ProfilePage/>} />
         <Route path="/profileview" element={<ProfileView/>}/>
-        
+        <Route path="/providerdetail" element={<ProviderDetail/>}/>
 
 
      <Route element={<Sidebarlayout />}>
@@ -49,6 +51,7 @@ function App() {
         <Route path="/alert" element={<AlertPage />} />
         <Route path="/setting" element={<Settingspage />} />
         <Route path="/addnewplot" element={<AddNewPlot/>}/>
+        <Route path="/findproviders" element={<FindProviders/>}/> 
       
        </Route>
       </Routes>
