@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiCheckCircle, FiTrendingUp, FiEye } from "react-icons/fi";
 import { GiPlantSeed } from "react-icons/gi";
