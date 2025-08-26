@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiBell, FiHome, FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import { FaLeaf } from "react-icons/fa";
 import {
   format,
   startOfMonth,
@@ -15,6 +14,7 @@ import {
   isToday,
 } from "date-fns";
 import { th } from "date-fns/locale/th";
+
 
 /* ===== Types ===== */
 type Event = {
@@ -144,7 +144,7 @@ const CalendarServer: React.FC = () => {
              src="/images/logo.png"
              alt="Logo"
              className="h-8 w-8 object-contain"/>
-            <span>Smart Sensor longan</span>
+            <span>longan Smart Sensor </span>
           </div>
 
           <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">

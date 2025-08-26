@@ -41,13 +41,12 @@ function App() {
         <Route path="/profilepage" element={<ProfilePage/>} />
         <Route path="/profileview" element={<ProfileView/>}/>
         <Route path="/providerdetail" element={<ProviderDetail/>}/>
-
+        <Route path="/fertilizer" element={<FertilizerPage />} />
 
      <Route element={<Sidebarlayout />}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/plot" element={<PlotPage />} />
         <Route path="/calendar" element={<Calendartwo />} />
-        <Route path="/fertilizer" element={<FertilizerPage />} />
         <Route path="/alert" element={<AlertPage />} />
         <Route path="/setting" element={<Settingspage />} />
         <Route path="/addnewplot" element={<AddNewPlot/>}/>
@@ -61,3 +60,4 @@ function App() {
 }
 
 export default App;
+
