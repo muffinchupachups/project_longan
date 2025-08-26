@@ -1,5 +1,3 @@
-import React from "react";
-
 type Provider = {
   id: number;
   name: string;
