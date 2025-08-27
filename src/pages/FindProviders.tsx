@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 type Provider = {
   id: number;
   name: string;
@@ -75,6 +77,8 @@ const providers: Provider[] = [
 ];
 
 export default function FindProviders() {
+  const navigate = useNavigate(); // ✅ ต้องอยู่ใน component
+
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
       {/* Header */}
@@ -119,7 +123,10 @@ export default function FindProviders() {
 
             {/* Buttons */}
             <div className="flex gap-2 mt-3">
-              <button className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-1 rounded">
+              <button
+                onClick={() => navigate("/providerdetail")} // ✅ ไปหน้า ProviderDetail
+                className="flex-1 bg-blue-500 hover:bg-blue-600 text-white py-1 rounded"
+              >
                 ดูรายละเอียด
               </button>
               <button className="flex-1 bg-green-500 hover:bg-green-600 text-white py-1 rounded">

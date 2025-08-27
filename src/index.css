@@ -93,3 +93,24 @@ html, body, #root {
   padding: 4px 10px !important; /* ✅ ปรับขนาดปุ่ม */
   border-radius: 6px !important;
 }
+/* ปิด autofill background + popup */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+  caret-color: #000;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ปิด suggestion popup */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}

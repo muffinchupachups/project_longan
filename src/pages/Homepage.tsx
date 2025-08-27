@@ -4,8 +4,6 @@ import HeroSection from "../components/HeroSection";
 import SensorStats from "../components/SensorStats";
 import ForecastBar from "../components/ForecastBar";
 import AdviceToday from "../components/AdviceToday";
-import SensorPreview from "../components/SensorPreview";
-import NewsSection from "../components/NewsSection";
 
 export default function Homepage() {
   return (
@@ -33,19 +31,6 @@ export default function Homepage() {
       {/* Section 3: Sensor Preview + News */}
       <section className="w-full bg-[#ffffff] py-14">
         <div className="w-full px-6 xl:px-20 space-y-14">
-
-          {/* กล่องเซ็นเซอร์ */}
-          <div className="rounded-2xl bg-white shadow p-6 md:p-8">
-            <SensorPreview />
-          </div>
-
-          {/* ข่าวสาร 3 ช่อง */}
-          <div>
-            <h3 className="text-lg font-sans text-green-800 mb-4 flex items-center gap-2">
-              <span className="text-yellow-500 text-xl"></span>
-            </h3>
-            <NewsSection />
-          </div>
         </div>
       </section>
       {/* Footer */}
