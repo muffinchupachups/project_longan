@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaLeaf } from "react-icons/fa";
 import { FiBell, FiHome } from "react-icons/fi";
 
 /* ===== Type ===== */

@@ -21,7 +21,7 @@ export default function Login2() {
       {/* Card */}
       <div className="relative z-10 bg-white shadow-xl rounded-xl w-full max-w-md p-8 border border-green-200">
         <h1 className="text-3xl font-bold text-green-800 mb-6 text-center flex items-center justify-center gap-2">
-          🌱 เข้าสู่ระบบ
+          🌱 เข้าสู่ระบบสำหรับผู้ให้บริการ
         </h1>
 
         <form className="space-y-4" onSubmit={handleLogin}>
