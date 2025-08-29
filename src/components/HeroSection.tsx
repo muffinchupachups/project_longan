@@ -1,7 +1,4 @@
-import { useNavigate } from "react-router-dom";
-
 export default function HeroSection() {
-  const navigate = useNavigate();
 
   return (
     <section className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-6 md:p-10 shadow-md">
