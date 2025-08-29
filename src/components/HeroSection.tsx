@@ -14,13 +14,6 @@ export default function HeroSection() {
             ใช้ข้อมูลเซ็นเซอร์และสภาพอากาศ<br />
             เพื่อเพิ่มประสิทธิภาพการปลูกลำไยในช่วงสภาพอากาศร้อนจัด
           </p>
-
-          <button
-            onClick={() => navigate("/dashboard")}
-            className="mt-6 flex items-center gap-2 px-6 py-2 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 transition text-sm"
-          >
-            <span>🌱</span> เริ่มวางแผนเพาะปลูก
-          </button>
         </div>
 
         <div className="flex justify-center">
