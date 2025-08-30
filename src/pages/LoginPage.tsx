@@ -21,7 +21,7 @@ export default function Login() {
 
       
       {/* Card */}
-      <div className="relative z-10 bg-white/80 backdrop-blur-lg shadow-lg rounded-xl w-full max-w-md p-8">
+      <div className="relative z-10 bg-white backdrop-blur-lg shadow-lg rounded-xl w-full max-w-md p-8">
         <h1 className="text-3xl font-bold text-green-800 mb-6 text-center flex items-center justify-center gap-2">
           🌱 เข้าสู่ระบบสำหรับเกษตร
         </h1>
